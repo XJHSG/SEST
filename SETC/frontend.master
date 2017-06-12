@@ -1,0 +1,370 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="frontend.master.cs" Inherits="frontend" %>
+<%@ Register TagPrefix="UserControl" TagName="frontend1" Src="~/frontend1.ascx" %>
+<%@ Register Src="~/SearchControl/Search_Box.ascx" TagPrefix="uc1" TagName="Search_Box" %>
+<%@ Register Src="~/SearchControl/Search_Box2.ascx" TagPrefix="uc2" TagName="Search_Box2" %>
+
+<!DOCTYPE html >
+
+<html >
+<head runat="server">
+    <!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+	<meta content=always name=referrer>
+
+    <!-- Title -->
+    <title>教育技术与传播学院 —— 艺术与技术的融合，智慧与汗水的结晶</title>
+
+     <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+
+    <!-- Stylesheets -->
+    <link href="/css2/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/css2/fontello.css" rel="stylesheet" type="text/css" />
+    <link href="/css2/flexslider.css" rel="stylesheet" type="text/css" />
+    <link href="/js2/revolution-slider/css/settings.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/css2/owl.carousel.css" rel="stylesheet" type="text/css" />
+    <link href="/css2/responsive-calendar.css" rel="stylesheet" type="text/css" />
+    <link href="/css2/chosen.css" rel="stylesheet" type="text/css" />
+    <%--<link href="jackbox/css/jackbox.min.css" rel="stylesheet" type="text/css" />--%>
+    <link href="/css2/cloud-zoom.css" rel="stylesheet" type="text/css" />
+    <link href="/css2/style.css" rel="stylesheet" type="text/css" />
+
+    <!--[if lt IE 9]>
+        <link href="css2/jackbox-ie8.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="css2/ie.css">
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<link href="css/jackbox-ie8.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="css/ie.css">
+    <![endif]-->
+
+    <!--[if lte IE 8]>
+        <script>
+            alert("为获得最佳效果，建议使用IE9、Chrome10或更高版本的浏览器。");
+        </script>
+    <![endif]-->
+
+    <!--[if gt IE 8]>
+        <link href="css2/jackbox-ie9.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="css2/fontello-ie7.css">
+    <![endif]-->
+
+    <style type="text/css">
+        .no-fouc {
+            display: none;
+        }
+    </style>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="/js2/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="/js2/jquery-ui-1.10.4.min.js"></script>
+    <script src="/js/hisrc.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function (e) {
+            $(".login3").click(function (e) {
+                $('.blanks3').show();
+                $('.blanks3').height($(document).height());
+                $(".module-area3").slideDown(400);//fadeIn()
+
+
+            });
+            $(".module-close3").click(function (e) {
+                $('.blanks3').hide();
+                $(".module-area3").slideUp(400);//fadeOut()
+            });
+
+            $(".Sure3").click(function (e) {
+                $('.blanks3').hide();
+                $(".module-area3").slideUp(400);//fadeOut()
+            });
+
+        });
+
+    </script>
+
+    <!-- Preloader -->
+    <script type="text/javascript" src="/js2/jquery.queryloader2.min.js"></script>
+
+    <%-- 网页打开加载进度条 --%>
+    <script type="text/javascript">
+        $('html').addClass('no-fouc');
+
+        $(document).ready(function () {
+
+            $('html').show();
+
+            //var window_w = $(window).width();
+            //var window_h = $(window).height();
+            //var window_s = $(window).scrollTop();
+
+            //$("body").queryLoader2({
+            //    backgroundColor: '#F9F6EF',
+            //    barColor: '#0097B3',
+            //    barHeight: 4,
+            //    percentage: false,
+            //    deepSearch: true,
+            //    minimumTime: 1000,
+            //    onComplete: function () {
+
+            //        $('.animate-onscroll').filter(function (index) {
+
+            //            return this.offsetTop < (window_s + window_h);
+
+            //        }).each(function (index, value) {
+
+            //            var el = $(this);
+            //            var el_y = $(this).offset().top;
+
+            //            if ((window_s) > el_y) {
+            //                $(el).addClass('animated fadeInDown').removeClass('animate-onscroll');
+            //                setTimeout(function () {
+            //                    $(el).css('opacity', '1').removeClass('animated fadeInDown');
+            //                }, 2000);
+            //            }
+
+            //        });
+
+            //    }
+            //});
+
+        });
+    </script>
+      <asp:ContentPlaceHolder id="head" runat="server">
+      </asp:ContentPlaceHolder>
+</head>
+<body class="sticky-header-on tablet-sticky-header">
+    <form id="form1" runat="server">
+    <!-- Container -->
+    <div class="container">
+
+        
+        <!-- Header -->
+        <header id="header" class="animate-onscroll">
+
+            <!-- Entry -->
+            <div id="Entry-header">
+                <div class="container">
+                    <div class="row">
+                        <div id="Entry">
+                            <span class="login3"><i class="icons icon-search"></i>&nbsp;&nbsp;|</span>
+                            <span><a href="http://www.gdin.edu.cn" target="_blank">学校官网</a></span>|
+                            <span><a href="http://setc.gdin.edu.cn" target="_blank">旧版院网</a></span>|
+                            <span><asp:Literal ID="Literal1" runat="server"></asp:Literal></span>|
+                            <span><asp:Literal ID="Literal2" runat="server"></asp:Literal></span>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Header -->
+            <div id="main-header">
+
+                <div class="container">
+
+                    <div class="row">
+
+                        <!-- Logo -->
+                        <div id="logo" class="col-lg-2 col-md-2 col-sm-2">
+
+                            <a href="Index2.aspx"><img src="/img/logo.png" alt="Logo" class="logoImg"/></a>
+
+                        </div>
+                        <!-- /Logo -->
+
+                        <!-- Main Quote -->
+                        <div class="col-lg-7 col-md-6 col-sm-5 MainQuote">
+
+                            <h2 style="margin:15px 0px 10px; ">教育技术与传播学院</h2>
+                            <h2 id="jiaoyu-h2" style="margin:0px 0px; ">教育技术中心</h2>
+
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-5">
+                            <uc1:Search_Box runat="server" id="Search_Box" />
+                        </div>
+                        <!-- /Main Quote -->
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- /Main Header -->
+
+            <!-- Lower Header -->
+            <div id="lower-header">
+
+                <div class="container">
+
+                    <div id="menu-button">
+                        <div>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <span>菜单</span>
+                    </div>
+
+                    <ul id="navigation">
+
+                        <!-- 主页 -->
+                        <li class="home-button current-menu-item">
+
+                            <a href="/Index2.aspx"><i class="icons icon-home"></i></a>
+
+                        </li>
+                      
+                       <li>
+                            <asp:Repeater ID="Repeater1" runat="server" >
+                                <ItemTemplate>
+                                   <li>
+                                        <span><a href=<%# Link.ToMenu(Eval("ToLinkArticleID").ToString(),Eval("Href").ToString(),Eval("CatMenuName").ToString()) %>><%# Eval("CatMenuName") %></a></span>                                        
+                            <ul>                            
+                                  <UserControl:frontend1 ID="UC_Article_List1" runat="server" CatMenuID='<%# Eval("ID") %>' />
+                            </ul>
+                                   </li>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        <li>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+            <!-- /Lower Header -->
+
+            <!-- 模态框弹出部分  --->
+            <div id="lower-header2">
+
+                <div class="container">
+
+                    <div class="blanks3"></div>
+                    <div class="module-area3 modal-content3">
+                        <div class="module-head3">
+                            <div class="module-close3">X</div>
+                        </div>
+
+                        <div id="BDCenter">
+                            <div id="loginInput">
+                                <!---放内容 --->
+                                <uc2:Search_Box2 runat="server" ID="Search_Box1" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /模态框弹出部分  --->
+
+        </header>
+        <!-- /Header -->
+        
+        <asp:Label ID="AbsoluteUrl" runat="server" Text="" Visible="false"></asp:Label>
+<!-- 模板页 -->
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">        
+        </asp:ContentPlaceHolder>
+    </div>
+<!-- /模板页 -->
+
+<!-- 页脚 -->
+         <!-- Footer -->
+        <footer id="footer">
+
+            <!-- Lower Footer -->
+            <div id="lower-footer">
+
+                <div class="row">
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 animate-onscroll">
+                        <div class="footer">
+                            <p>&nbsp;</p>
+                            <p>版权所有 2012-2014 <span style="font-size:14px; font-family:Verdana;">&copy;</span> <a href="http://www.gdin.edu.cn" target="_blank">广东技术师范学院</a> <a href="http://202.192.72.24">教育技术与传播学院</a> <a href="http://119.145.71.151">教育技术中心</a></p>
+                            <p>新网站开通日期：2016-09-20 | 技术支持：Justin | 联系邮箱：21646523@QQ.com  | <a href="Article_View2.aspx?ID=2042">网站故事</a> </p>
+                            <p>
+                                <%--<script type="text/javascript">	    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1252951388'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/stat.php%3Fid%3D1252951388%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>--%>
+                            </p>
+                            <%--<p style="padding-top:10px;">
+                                <script type="text/javascript">
+                                    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                                    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc31e5706e2277c8cef2338e2de57ffb3' type='text/javascript'%3E%3C/script%3E"));
+                                </script>
+                            </p>--%>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+            <!-- /Lower Footer -->
+
+
+        </footer>
+        <!-- /Footer -->
+
+        <!-- Back To Top -->
+        <div class="toolbar">
+           <a href="###" class="toolbar-item toolbar-item-weixin">
+           <span class="toolbar-layer"></span>
+           </a>
+           <a href="###" class="toolbar-item toolbar-item-app">
+            <span class="toolbar-layer">
+                    <asp:Image ID="ImgCode" runat="server" CssClass="ImgCodeClass" />
+            </span>
+           </a>
+        </div>
+        <a href="#" id="button-to-top"><i class="icons icon-up-dir"></i></a>
+
+    </div>
+    <!-- /Container -->
+
+    <!-- JavaScript -->
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="/js2/bootstrap.min.js"></script>
+
+    <!-- Modernizr -->
+    <script type="text/javascript" src="/js2/modernizr.js"></script>
+
+    <!-- Sliders/Carousels -->
+    <script type="text/javascript" src="/js2/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="/js2/owl.carousel.min.js"></script>
+
+    <!-- Revolution Slider  -->
+    <script type="text/javascript" src="/js2/revolution-slider/js/jquery.themepunch.plugins.min.js"></script>
+    <script type="text/javascript" src="/js2/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
+
+    <!-- Calendar -->
+    <script type="text/javascript" src="/js2/responsive-calendar.min.js"></script>
+
+    <!-- Raty -->
+    <script type="text/javascript" src="/js2/jquery.raty.min.js"></script>
+
+    <!-- Chosen -->
+    <script type="text/javascript" src="/js2/chosen.jquery.min.js"></script>
+
+    <!-- MixItUp -->
+    <script type="text/javascript" src="/js2/jquery.mixitup.js"></script>
+
+    <!-- JackBox -->
+    <%--<script type="text/javascript" src="jackbox/js/jackbox-packed.min.js"></script>--%>
+
+    <!-- CloudZoom -->
+    <script type="text/javascript" src="/js2/zoomsl-3.0.min.js"></script>
+
+    <!-- Main Script -->
+    <script type="text/javascript" src="/js2/script.js"></script>
+
+
+    </form>
+</body>
+</html>
